@@ -25,8 +25,8 @@ router.post("/", async (req, res) => {
 			// Respond back to the client with the created users username and id
 			res.status(201).json({ user: new_user });
 		} catch (e) {
-			if (error.code === "P2002") {
-				res.status(403).json({ ewrror: "The username is already taken" });
+			if (e.code === "P2002") {
+				res.status(403).json({ error: "The username is already taken" });
 			} else {
 				res.status(500).json({ error: e });
 			}
